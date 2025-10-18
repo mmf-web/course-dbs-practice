@@ -1,7 +1,12 @@
+CREATE TABLE IF NOT EXISTS categories (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS expenses (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     amount REAL NOT NULL,
-    category TEXT NOT NULL,
+    category_id INTEGER NOT NULL REFERENCES categories(id),
     description TEXT,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );

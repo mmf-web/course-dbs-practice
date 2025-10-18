@@ -79,4 +79,14 @@ export const commands = [
       return 'OK'
     },
   },
+  {
+    name: 'add_category',
+    description: 'Добавить категорию',
+    run: async (db, args) => {
+      const sql = fs.readFileSync('./sql/07_add_category.sql', 'utf8').trim()
+      const [name] = args
+      await db.run(sql, [name])
+      return 'OK'
+    },
+  },
 ]
